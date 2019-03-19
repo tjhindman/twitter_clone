@@ -7,7 +7,7 @@ class TwitterUser(models.Model):
     username = models.CharField(max_length=40)
     email = models.EmailField()
     password = models.CharField(max_length=40)
-    followers = models.ManyToManyField(User)
+    followers = models.ManyToManyField(User, related_name='followers')
 
     def __str__(self):
         return self.user.username

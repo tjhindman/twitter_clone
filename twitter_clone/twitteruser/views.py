@@ -29,8 +29,8 @@ def signup(request):
                 email=data['email']
             )
 
-            return HttpResponseRedirect(reverse('mainpage'))
+            return HttpResponseRedirect(reverse('homepage'))
     else:
         form = Signup()
 
-    return render(request, 'templates/generic_form.html', {'form': form})
+    return render(request, 'twitteruser/templates/signup_form.html', {'form': form})
