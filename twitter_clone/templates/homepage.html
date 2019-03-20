@@ -17,6 +17,7 @@
     {% include 'navbar.html' %}
     <div id='content'>
         <div id='user'>
+            <!-- NEED TO ADD A DISPLAY NAME TO USER MODEL. -->
             <h1>{{user.username}}</h1>
             <a href='/profile/{{user.id}}'>@{{user.username}}</a>
             <hr>
@@ -25,11 +26,12 @@
             Followers: 0
         </div>
         <div id='tweet-wrap'>
+            <!-- NEED TO ADD A DISPLAY NAME TO USER MODEL. -->
             <h1>Check it out, {{user.username}}!</h1>
             {% for t in tweets %}
                 <div>
-                    <a href='/profile/{{user.id}}'>{{t.user}}</a>
-                    {{t.created_at}}
+                    <a href='/profile/{{t.user.id}}'>{{t.user}}</a> | 
+                    <a href='/tweet/{{t.id}}'>{{t.created_at}}</a>
                     <hr>
                     {{t.tweet}}
                 </div>

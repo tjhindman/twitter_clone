@@ -48,8 +48,10 @@ def profile(request, user_id):
     t_user = TwitterUser.objects.filter(id=user_id)
     tweets = Tweet.objects.filter(id=user_id)
 
-    return render(request, 'profile.html', {'user': t_user, 'tweets': tweets})
+    return render(request, 'profile.html', {'user': t_user[0], 'tweets': tweets})
 
 
-# def tweet(request, tweet_id):
-#     tweets = Tweet.objects.filter(id=tweet_id)
+def tweet(request, tweet_id):
+    tweet = Tweet.objects.filter(id=tweet_id)
+
+    return render(request, 'tweet.html', {'tweet': tweet[0]})

@@ -5,14 +5,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{user.username}} | Twitter</title>
+    <style>
+        #content {display: flex; flex-direction: column; margin: 40px auto; width: 800px}
+        #user {border: 3px solid rgb(0, 225, 255); border-radius: 5%; padding: 20px}
+        #tweet-wrap {margin: 15px; border-radius: 5%; padding: 20px; background-color: rgb(245, 245, 245)}
+        #tweet-wrap div {margin: 5px; border: 2px solid rgb(206, 206, 206); border-radius: 5%; padding: 10px; background-color: white}
+        a {color: rgb(0, 137, 190)}
+    </style>
 </head>
 <body>
     {% include 'navbar.html' %}
-    {{user.email}}
-    <ul>
-        {% for t in tweets %}
-            <li>{{t.tweet}}</li>
-        {% endfor %}
-    </ul>
+    <div id='content'>
+        <div id='user'>
+            <!-- NEED TO ADD A DISPLAY NAME TO USER MODEL. -->
+            <h1>{{user.username}}</h1>
+            <h3>@{{user.user}}</h3>
+            <hr>
+            <p>Tweets: {{tweets|length}}</p>
+            <p>Followers: 0</p>
+        </div>
+        <div id='tweet-wrap'>
+            {% for t in tweets %}
+                <div>
+                    <span>{{t.user}} | </span>
+                    <a href='/tweet/{{t.id}}'>{{t.created_at}}</a>
+                    <hr>
+                    {{t.tweet}}
+                </div>
+            {% endfor %}
+        </div>
+    </div>
 </body>
 </html>

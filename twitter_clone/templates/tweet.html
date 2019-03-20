@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Tweet on {{tweet.created_at}}</title>
+    <style>
+        #tweet-wrap {margin: 15px auto; border-radius: 5%; padding: 20px; background-color: rgb(245, 245, 245); width: 800px}
+        #tweet-wrap div {margin: 5px; border: 2px solid rgb(206, 206, 206); border-radius: 5%; padding: 10px; background-color: white}
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+    <div id='tweet-wrap'>
+        <div>
+            <span>{{tweet.user}} | </span>
+            <span>{{tweet.created_at}}</span>
+            <hr>
+            {{tweet.tweet}}
+        </div>
+    </div>
+</body>
+</html>
